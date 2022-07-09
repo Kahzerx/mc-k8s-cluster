@@ -1,0 +1,53 @@
+kubeProxy:
+  enabled: false
+
+alertmanager:
+  ingress:
+    enabled: true
+    hosts:
+      - alertmanager.kzx.com
+    paths:
+      - /
+
+grafana:
+  enabled: true
+  adminPassword: "RhKI0X7jrzweyBQDC6OWOytzGDZHwfwyM4FfAu4j"
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.kzx.com
+    paths:
+      - /
+  plugins:
+    - grafana-piechart-panel
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki:3100
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: default
+          orgId: 1
+          folder:
+          type: file
+          disableDeletion: true
+          editable: false
+          options:
+            path: /var/lib/grafana/dashboards/default
+  dashboards:
+    default:
+      loki:
+        gnetId: 13639
+        revision: 1
+        datasource: Loki
+
+prometheus:
+  ingress:
+    enabled: true
+    hosts:
+      - prometheus.kzx.com
+    paths:
+      - /

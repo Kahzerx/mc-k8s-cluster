@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "oc-evt.fullname" . }}
+  labels:
+    {{- include "oc-evt.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: 25565
+      targetPort: 25565
+      nodePort: {{ .Values.service.port }}
+      protocol: TCP
+      name: tcp
+  selector:
+    {{- include "oc-evt.selectorLabels" . | nindent 4 }}
