@@ -13,3 +13,4 @@ spec:
   selector:
     matchLabels:
       type: local
+  volumeName: oc-evt-volume

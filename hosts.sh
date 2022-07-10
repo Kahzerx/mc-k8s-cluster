@@ -9,6 +9,7 @@ echo "$IP  maps.kzx.com"
 echo "$IP  oc4-smp.kzx.com"
 echo "$IP  oc-cmp.kzx.com"
 echo "$IP  oc-evt.kzx.com"
+echo "$IP  oc-bg.kzx.com"
 echo "Insert this on your /etc/docker/daemon.json"
 echo {
 echo "insecure-registries" : ["kzx.com:5000"]

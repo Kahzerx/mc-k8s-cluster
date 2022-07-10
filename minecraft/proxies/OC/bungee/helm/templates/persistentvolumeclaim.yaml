@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: oc4-smp-volume-claim
+  name: oc-bg-volume-claim
   namespace: oc
 spec:
   storageClassName: local
@@ -9,8 +9,8 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 50Gi
+      storage: 1Gi
   selector:
     matchLabels:
       type: local
-  volumeName: oc4-smp-volume
+  volumeName: oc-bg-volume
