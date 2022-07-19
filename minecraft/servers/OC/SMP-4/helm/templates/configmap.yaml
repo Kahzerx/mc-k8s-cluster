@@ -47,7 +47,7 @@ data:
     force-gamemode=false
     rate-limit=0
     hardcore=false
-    white-list=true
+    white-list=false
     broadcast-console-to-ops=true
     spawn-npcs=true
     previews-chat=false
