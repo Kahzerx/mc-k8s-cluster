@@ -2,7 +2,7 @@ alias kubectl="minikube kubectl --"
 
 minikube delete
 
-minikube start --insecure-registry "10.0.0.0/24"
+minikube start --cpus='max' --disk-size='200gb' --memory='max' --insecure-registry "10.0.0.0/24"
 
 sleep 20
 

@@ -56,10 +56,10 @@ resources:
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   requests:
     cpu: 1000m
-    memory: 2048Mi
+    memory: 6Gi
   limits:
-    cpu: 2000m
-    memory: 4096Mi
+    cpu: 2500m
+    memory: 10Gi
 
 nodeSelector: {}
 
