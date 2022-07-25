@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oc-bg-config
+  namespace: oc
+data:
+  config.yml: |
+    enforce_secure_profile: false
+    listeners:
+    - query_port: 25577
+      motd: otakucraft
+      tab_list: GLOBAL_PING
+      query_enabled: true
+      proxy_protocol: false
+      ping_passthrough: false
+      priorities:
+      - otakucraft4
+      bind_local_address: true
+      host: 0.0.0.0:25577
+      max_players: -1
+      tab_size: 60
+      force_default_server: true
+      forced_hosts:
+        pvp.md-5.net: pvp
+    remote_ping_cache: -1
+    network_compression_threshold: 256
+    permissions:
+      default:
+      - bungeecord.command.server
+      - bungeecord.command.list
+      admin:
+      - bungeecord.command.alert
+      - bungeecord.command.end
+      - bungeecord.command.ip
+      - bungeecord.command.reload
+    log_pings: true
+    connection_throttle_limit: 3
+    server_connect_timeout: 5000
+    timeout: 30000
+    stats: c6df0abe-f55f-4587-86e3-9848e908e4f9
+    player_limit: -1
+    ip_forward: true
+    groups:
+      Kahzerx:
+      - admin
+    remote_ping_timeout: 5000
+    connection_throttle: 4000
+    log_commands: false
+    prevent_proxy_connections: false
+    online_mode: true
+    forge_support: false
+    servers:
+      otakucraft4:
+        motd: otakucraft
+        address: oc4-smp.oc.svc.cluster.local:25565
+        restricted: false
+      otakucraftCMP:
+        motd: otakucraft
+        address: oc-cmp.oc.svc.cluster.local:25565
+        restricted: false

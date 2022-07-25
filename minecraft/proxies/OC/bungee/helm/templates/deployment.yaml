@@ -26,9 +26,12 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
-        - name: oc-bg-storage
-          persistentVolumeClaim:
-            claimName: oc-bg-volume-claim
+        - name: oc-bg-config
+          configMap:
+            name: oc-bg-config
+            items:
+              - key: config.yml
+                path: config.yml
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -47,8 +50,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-          - name: oc-bg-storage
-            mountPath: "/usr/src/server/"
+          - name: oc-bg-config
+            mountPath: "/usr/src/files/"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

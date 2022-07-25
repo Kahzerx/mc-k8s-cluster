@@ -34,9 +34,6 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-volume:
-  path: /data/oc/oc-bg
-
 service:
   type: NodePort
   port: 31500

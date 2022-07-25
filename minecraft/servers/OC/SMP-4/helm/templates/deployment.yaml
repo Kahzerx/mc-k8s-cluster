@@ -37,6 +37,12 @@ spec:
                 path: server.properties
               - key: eula.txt
                 path: eula.txt
+        - name: oc4-fabricproxy
+          configMap:
+            name: oc4-fabricproxy
+            items:
+              - key: FabricProxy.toml
+                path: FabricProxy.toml
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -48,10 +54,6 @@ spec:
             - name: {{ $key }}
               value: {{ $val | quote }}
           {{- end }}
-          ports:
-            - name: tcp
-              containerPort: {{ .Values.service.port }}
-              protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -59,6 +61,8 @@ spec:
             mountPath: "/usr/src/server/"
           - name: oc4-files
             mountPath: "/usr/src/files/"
+          - name: oc4-fabricproxy
+            mountPath: "/usr/src/config/"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

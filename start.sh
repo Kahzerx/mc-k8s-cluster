@@ -24,7 +24,8 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 helm upgrade -n kubeview --create-namespace -i kubeview kubeview/kubeview -f kubeview/kubeview.yaml
-helm upgrade -n prometheus-stack --create-namespace -i loki grafana/loki-stack -f prometheus/loki-stack.yaml
+helm upgrade -n loki --create-namespace -i loki grafana/loki-stack -f prometheus/loki-stack.yaml
 helm upgrade -n prometheus-stack --create-namespace -i prometheus prometheus-community/kube-prometheus-stack -f prometheus/prometheus-stack.yaml
 
 minikube dashboard
+# kubectl delete pods -n prometheus-stack --field-selector=status.phase=Running

@@ -37,10 +37,6 @@ securityContext: {}
 volume:
   path: /data/oc/oc-cmp
 
-service:
-  type: NodePort
-  port: 31001
-
 ingress:
   enabled: true
   hosts:

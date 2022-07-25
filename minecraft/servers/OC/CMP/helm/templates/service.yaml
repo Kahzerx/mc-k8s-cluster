@@ -5,12 +5,10 @@ metadata:
   labels:
     {{- include "oc-cmp.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
   ports:
-    - port: 25565
-      targetPort: 25565
-      nodePort: {{ .Values.service.port }}
-      protocol: TCP
-      name: tcp
+  - port: 25565
+    targetPort: 25565
+    protocol: TCP
+    name: tcp
   selector:
     {{- include "oc-cmp.selectorLabels" . | nindent 4 }}

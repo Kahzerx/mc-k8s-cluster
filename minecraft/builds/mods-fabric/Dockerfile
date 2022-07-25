@@ -8,4 +8,4 @@ ADD https://github.com/CaffeineMC/lithium-fabric/releases/download/mc1.19-0.8.1/
 ADD https://mediafiles.forgecdn.net/files/3835/973/starlight-1.1.1%2Bfabric.ae22326.jar /usr/src/mods/fabric-starlight.jar
 ADD https://mediafiles.forgecdn.net/files/3879/542/spark-1.9.26-fabric.jar /usr/src/mods/fabric-spark.jar
 ADD https://mediafiles.forgecdn.net/files/3836/903/worldedit-mod-7.2.11-beta-01.jar /usr/src/mods/fabric-world-edit.jar
-CMD cp ../files/* . && rm -rf mods/ && mkdir -p mods/ && cp ../mods/* mods/ && java -Xmx10G -jar ../jar/fabric-server-mc.1.19-loader.0.14.8-launcher.0.11.0.jar nogui
+CMD cp ../files/* . && rm -rf mods/ && rm -rf config/ && mkdir -p mods/ && mkdir -p config/ && cp ../mods/* mods/ && cp ../config/* config/ && java -Xmx10G -jar ../jar/fabric-server-mc.1.19-loader.0.14.8-launcher.0.11.0.jar nogui

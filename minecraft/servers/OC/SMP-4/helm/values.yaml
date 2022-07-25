@@ -37,10 +37,6 @@ securityContext: {}
 volume:
   path: /data/oc/oc4-smp
 
-service:
-  type: NodePort
-  port: 31000
-
 ingress:
   enabled: true
   hosts:
@@ -56,7 +52,7 @@ resources:
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   requests:
     cpu: 1000m
-    memory: 6Gi
+    memory: 10Gi
   limits:
     cpu: 2500m
     memory: 10Gi
