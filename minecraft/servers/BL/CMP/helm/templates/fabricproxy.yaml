@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bl-cmp-fabricproxy
+  namespace: bl
+data:
+  FabricProxy.toml: |
+    BungeeCord = true
+    Velocity = false
+    allowBypassProxy = false
+    secret = ""

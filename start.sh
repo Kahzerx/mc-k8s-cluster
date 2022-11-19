@@ -11,13 +11,13 @@ minikube addons enable registry && minikube addons enable ingress && kubectl app
 sleep 30
 
 cd web-map/ && ./build.sh && cd ..
-cd minecraft/builds/1.19-0.14.8-fabric && ./build.sh && cd ../../..
+cd minecraft/builds/1.19.2-0.14.10-fabric && ./build.sh && cd ../../..
 cd minecraft/builds/mods-fabric && ./build.sh && cd ../../..
 cd minecraft/builds/bungeecord && ./build.sh && cd ../../..
 cd web-map && ./deploy.sh && cd ..
-cd minecraft/servers/OC/SMP-4 && ./deploy.sh && cd ../../../..
-cd minecraft/servers/OC/CMP && ./deploy.sh && cd ../../../..
-cd minecraft/proxies/OC/bungee && ./deploy.sh && cd ../../../..
+cd minecraft/servers/BL/SMP && ./deploy.sh && cd ../../../..
+cd minecraft/servers/BL/CMP && ./deploy.sh && cd ../../../..
+cd minecraft/proxies/BL/bungee && ./deploy.sh && cd ../../../..
 
 helm repo add kubeview https://benc-uk.github.io/kubeview/charts
 helm repo add grafana https://grafana.github.io/helm-charts

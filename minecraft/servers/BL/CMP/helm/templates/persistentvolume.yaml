@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bl-cmp-volume
+  namespace: bl
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+   - ReadWriteOnce
+  hostPath:
+    path: {{ .Values.volume.path }}
+  storageClassName: local
